@@ -85,6 +85,7 @@ Projects marked 📦 are archived or no longer maintained but kept for reference
 
 - [vibec0re/vibectl](https://github.com/vibec0re/vibectl) - Async Rust control with WebSocket events and CLI, TUI, web and GTK clients.
 - [lednifrolg/dirigent](https://github.com/lednifrolg/dirigent) - Terminal client in Rust over the local API.
+- [bombsimon/dirigera-tui](https://github.com/bombsimon/dirigera-tui) - TUI for rooms, groups, scenes and devices, built on a client generated from the `dirigera-openapi` spec.
 - [EryXInc/dirigera-tui](https://github.com/EryXInc/dirigera-tui) - TUI in Rust.
 - [nyanshell/dirigera-ctl](https://github.com/nyanshell/dirigera-ctl) - CLI in Rust.
 - [julianStreibel/crib](https://github.com/julianStreibel/crib) - CLI aimed at LLM agents controlling TRÅDFRI, Sonos and Spotify.
