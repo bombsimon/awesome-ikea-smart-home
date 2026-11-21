@@ -1,0 +1,5 @@
+# awesome-lint requires each list item on a single line, so long URLs can't wrap
+MD013: false
+# Subsections like "Python" or "Home Assistant" repeat under different parents
+MD024:
+  siblings_only: true

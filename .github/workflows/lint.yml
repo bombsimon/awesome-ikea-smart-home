@@ -1,0 +1,51 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    # Weekly run to catch repositories that were deleted or renamed
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: "**/*.md"
+
+  awesome-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # awesome-lint inspects the git history and remote
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - run: npx --yes awesome-lint README.md
+        env:
+          # awesome-lint reads the lowercase name. Without it, rate limited
+          # repo metadata checks are skipped silently instead of failing
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-concurrency 8 README.md contributing.md
+          fail: true
+        env:
+          # Authenticated requests avoid GitHub's anonymous rate limit
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
