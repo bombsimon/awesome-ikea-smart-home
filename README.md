@@ -1,8 +1,19 @@
 # Awesome IKEA Home Smart [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> A curated list of libraries, integrations, tools and hacks for IKEA Home
-> smart, the IKEA smart home ecosystem: the classic **TRÅDFRI gateway**, the
-> **DIRIGERA hub** and the Zigbee and Matter devices that work with them.
+A curated list of libraries, integrations, tools and hacks for IKEA Home
+smart, the IKEA smart home ecosystem: the classic **TRÅDFRI gateway**, the
+**DIRIGERA hub** and the Zigbee and Matter devices that work with them.
+
+> [!TIP]
+> **Building something for DIRIGERA?** There are many independent
+> re-implementations of the DIRIGERA client below, each covering a different
+> part of the API. **dirigera-openapi** describes the REST API with an
+> [OpenAPI spec](https://github.com/bombsimon/dirigera-openapi/blob/main/openapi.yaml)
+> and the WebSocket events with an
+> [AsyncAPI spec](https://github.com/bombsimon/dirigera-openapi/blob/main/asyncapi.yaml).
+> Consider generating your client from the spec instead of writing yet another
+> one by hand, and if you find endpoints, fields or events that are missing,
+> contribute them back to the spec so every generated client benefits.
 
 IKEA has two generations of hubs. The **TRÅDFRI gateway** (E1526) talks CoAP
 over DTLS on port 5684. The **DIRIGERA hub** (2022) has a local REST and
